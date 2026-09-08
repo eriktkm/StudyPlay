@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyPlay - Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="pagina-home pagina-quiz">
+
+    <!-- =========================
+         MENU LATERAL
+    ========================== -->
+    <aside class="menu-lateral">
+
+        <div class="logo-home">
+            <span>🧠</span>
+
+            <div>
+                <strong>STUDY</strong>
+                <strong>PLAY</strong>
+            </div>
+        </div>
+
+        <nav class="navegacao">
+
+            <a href="home.html" class="item-menu" id="btnInicioQuiz">
+                <span>🏠</span>
+                <span>Início</span>
+            </a>
+
+            <a href="quiz.html" class="item-menu ativo">
+                <span>🧩</span>
+                <span>Quiz</span>
+            </a>
+
+            <a href="mural.html" class="item-menu" id="btnMural">
+                <span>📌</span>
+                <span>Mural</span>
+            </a>
+
+        </nav>
+
+        <div class="rodape-menu">
+            🧠
+            <span>
+                Aprender pode ser divertido!
+            </span>
+        </div>
+
+    </aside>
+
+
+    <!-- =========================
+         CONTEÚDO
+    ========================== -->
+    <main class="conteudo-home">
+
+        <!-- TOPO -->
+        <header class="topo-home">
+
+            <div class="titulo-topo">
+                <span class="icone-casinha">
+                    🧩
+                </span>
+
+                <span>
+                    Quiz
+                </span>
+            </div>
+
+            <div class="usuario-home">
+
+                <div class="avatar-aluno">
+                    A
+                </div>
+
+                <span id="nomeAlunoQuiz">
+                    Aluno
+                </span>
+
+                <span class="seta-perfil">
+                    ▼
+                </span>
+
+            </div>
+
+        </header>
+
+
+        <!-- =========================
+             CABEÇALHO DO QUIZ
+        ========================== -->
+        <section class="cabecalho-quiz">
+
+            <span class="emoji-quiz-grande">
+                🧩
+            </span>
+
+            <div>
+
+                <h1>
+                    Hora do Quiz!
+                </h1>
+
+                <p>
+                    Escolha uma atividade e teste seus conhecimentos.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             LISTA DE QUIZZES
+        ========================== -->
+        <section
+            class="lista-quizzes"
+            id="listaQuizzes"
+        >
+            <!-- Os quizzes são criados pelo quiz.js -->
+        </section>
+
+
+        <!-- =========================
+             ÁREA DA ATIVIDADE
+        ========================== -->
+        <section
+            class="area-atividade"
+            id="areaAtividade"
+            style="display: none;"
+        >
+
+            <button
+                type="button"
+                class="botao-voltar-quiz"
+                id="btnVoltarLista"
+            >
+                ← Voltar para os quizzes
+            </button>
+
+
+            <div class="card-atividade">
+
+                <!-- TOPO DA ATIVIDADE -->
+                <div class="topo-atividade">
+
+                    <div>
+
+                        <span
+                            id="emojiAtividade"
+                            class="emoji-atividade"
+                        >
+                            🧩
+                        </span>
+
+                        <div>
+
+                            <h2 id="tituloAtividade">
+                                Quiz
+                            </h2>
+
+                            <p id="materiaAtividade">
+                                Matéria
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="pontuacao">
+
+                        <span>
+                            Pontuação
+                        </span>
+
+                        <strong id="pontuacaoAtual">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PROGRESSO -->
+                <div class="progresso-container">
+
+                    <div
+                        class="progresso"
+                        id="progressoQuiz"
+                    ></div>
+
+                </div>
+
+
+                <!-- PERGUNTA -->
+                <p
+                    class="contador-pergunta"
+                    id="contadorPergunta"
+                >
+                    Pergunta 1 de 5
+                </p>
+
+
+                <div class="pergunta-container">
+
+                    <h3 id="perguntaQuiz">
+                        Pergunta
+                    </h3>
+
+
+                    <div
+                        class="alternativas"
+                        id="alternativasQuiz"
+                    >
+                    </div>
+
+
+                    <div
+                        class="feedback-quiz"
+                        id="feedbackQuiz"
+                    >
+                    </div>
+
+
+                    <button
+                        type="button"
+                        id="btnProxima"
+                    >
+                        Próxima pergunta →
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             RESULTADO
+        ========================== -->
+        <section
+            class="resultado-quiz"
+            id="resultadoQuiz"
+            style="display: none;"
+        >
+
+            <div class="resultado-emoji">
+                🎉
+            </div>
+
+            <h2>
+                Quiz concluído!
+            </h2>
+
+            <p>
+                Você terminou esta atividade.
+            </p>
+
+
+            <div class="resultado-pontuacao">
+
+                <span>
+                    Sua pontuação
+                </span>
+
+                <strong id="pontuacaoFinal">
+                    0/5
+                </strong>
+
+            </div>
+
+
+            <p
+                id="mensagemResultado"
+                class="mensagem-resultado"
+            >
+            </p>
+
+
+            <button
+                type="button"
+                class="botao-refazer"
+                id="btnRefazer"
+            >
+                🔄 Refazer quiz
+            </button>
+
+
+            <button
+                type="button"
+                class="botao-voltar-lista"
+                id="btnEscolherOutro"
+            >
+                🧩 Escolher outro quiz
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <!-- JAVASCRIPT DO QUIZ -->
+    <script src="quiz.js"></script>
+
+</body>
+</html>

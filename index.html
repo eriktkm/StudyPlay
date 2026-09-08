@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>StudyPlay</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+    <main class="pagina">
+
+
+        <!-- =====================================
+             LADO ESQUERDO
+        ====================================== -->
+
+        <section class="esquerda">
+
+
+            <!-- Decorações -->
+
+            <div class="decoracao decoracao-1">
+                ✦
+            </div>
+
+            <div class="decoracao decoracao-2">
+                ✦
+            </div>
+
+            <div class="decoracao decoracao-3">
+                •
+            </div>
+
+
+
+            <div class="conteudo-login">
+
+
+                <!-- =================================
+                     LOGO
+                ================================== -->
+
+                <header class="logo">
+
+                    <div class="logo-imagem">
+                        🧠
+                    </div>
+
+                    <div class="logo-nome">
+
+                        <span>
+                            STUDY
+                        </span>
+
+                        <span>
+                            PLAY
+                        </span>
+
+                    </div>
+
+                </header>
+
+
+
+                <!-- =================================
+                     ESCOLHA DO PERFIL
+                ================================== -->
+
+                <div id="escolhaPerfil">
+
+
+                    <!-- Boas-vindas -->
+
+                    <div class="boas-vindas">
+
+                        <span class="etiqueta">
+                            ✨ BEM-VINDO!
+                        </span>
+
+
+                        <h1>
+
+                            Vamos começar
+
+                            <span>
+                                essa aventura?
+                            </span>
+
+                        </h1>
+
+
+                        <p>
+                            Escolha seu perfil para
+                            entrar na plataforma.
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- =================================
+                         PERFIS
+                    ================================== -->
+
+                    <div class="perfis">
+
+
+                        <!-- =============================
+                             ALUNO
+                        ============================== -->
+
+                        <button
+                            class="perfil aluno"
+                            id="btnAluno"
+                            type="button"
+                        >
+
+                            <div class="icone-perfil">
+                                🎒
+                            </div>
+
+
+                            <div class="texto-perfil">
+
+                                <small>
+                                    EU SOU
+                                </small>
+
+
+                                <h2>
+                                    Aluno
+                                </h2>
+
+
+                                <p>
+                                    Estude, aprenda e acompanhe
+                                    suas atividades.
+                                </p>
+
+                            </div>
+
+
+                            <div class="seta">
+                                →
+                            </div>
+
+                        </button>
+
+
+
+                        <!-- =============================
+                             PROFESSOR
+                        ============================== -->
+
+                        <button
+                            class="perfil professor"
+                            id="btnProfessor"
+                            type="button"
+                        >
+
+                            <div class="icone-perfil">
+                                👨‍🏫
+                            </div>
+
+
+                            <div class="texto-perfil">
+
+                                <small>
+                                    EU SOU
+                                </small>
+
+
+                                <h2>
+                                    Professor
+                                </h2>
+
+
+                                <p>
+                                    Organize suas turmas e
+                                    acompanhe seus alunos.
+                                </p>
+
+                            </div>
+
+
+                            <div class="seta">
+                                →
+                            </div>
+
+                        </button>
+
+
+
+                        <!-- =============================
+                             RESPONSÁVEL
+                        ============================== -->
+
+                        <button
+                            class="perfil responsavel"
+                            id="btnResponsavel"
+                            type="button"
+                        >
+
+                            <div class="icone-perfil">
+                                👨‍👩‍👧
+                            </div>
+
+
+                            <div class="texto-perfil">
+
+                                <small>
+                                    EU SOU
+                                </small>
+
+
+                                <h2>
+                                    Responsável
+                                </h2>
+
+
+                                <p>
+                                    Acompanhe a vida escolar
+                                    do seu filho.
+                                </p>
+
+                            </div>
+
+
+                            <div class="seta">
+                                →
+                            </div>
+
+                        </button>
+
+
+                    </div>
+
+
+
+                    <!-- Frase -->
+
+                    <div class="frase-final">
+
+                        <span>
+                            ♡
+                        </span>
+
+                        <p>
+                            Aprender pode ser divertido!
+                        </p>
+
+                        <span>
+                            ♡
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- =====================================
+                     FORMULÁRIO DO ALUNO
+                ====================================== -->
+
+                <div
+                    id="formularioLogin"
+                    class="formulario-login"
+                    style="display: none;"
+                >
+
+
+                    <!-- Voltar -->
+
+                    <button
+                        type="button"
+                        id="btnVoltar"
+                        class="btn-voltar"
+                    >
+
+                        ← Voltar
+
+                    </button>
+
+
+
+                    <!-- Título -->
+
+                    <div class="titulo-login">
+
+
+                        <span class="etiqueta">
+                            🎒 LOGIN DO ALUNO
+                        </span>
+
+
+                        <h1>
+                            Olá, aluno! 👋
+                        </h1>
+
+
+                        <p>
+                            Entre na sua conta para
+                            continuar seus estudos.
+                        </p>
+
+
+                    </div>
+
+
+
+                    <!-- =================================
+                         FORMULÁRIO
+                    ================================== -->
+
+                    <form id="formLogin">
+
+
+                        <!-- RA + DÍGITO -->
+
+                        <div class="linha-campos">
+
+
+                            <!-- RA -->
+
+                            <div class="campo">
+
+                                <label for="ra">
+                                    RA
+                                </label>
+
+
+                                <input
+                                    type="text"
+                                    id="ra"
+                                    name="ra"
+                                    placeholder="Digite seu RA"
+                                    autocomplete="username"
+                                >
+
+                            </div>
+
+
+
+                            <!-- DÍGITO -->
+
+                            <div class="campo campo-digito">
+
+                                <label for="digito">
+                                    Dígito
+                                </label>
+
+
+                                <input
+                                    type="text"
+                                    id="digito"
+                                    name="digito"
+                                    placeholder="00"
+                                    maxlength="2"
+                                >
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        <!-- =================================
+                             SENHA
+                        ================================== -->
+
+                        <div class="campo">
+
+                            <label for="senha">
+                                Senha
+                            </label>
+
+
+                            <input
+                                type="password"
+                                id="senha"
+                                name="senha"
+                                placeholder="Digite sua senha"
+                                autocomplete="current-password"
+                            >
+
+                        </div>
+
+
+
+                        <!-- =================================
+                             ESQUECEU SENHA
+                        ================================== -->
+
+                        <button
+                            type="button"
+                            id="btnEsqueceuSenha"
+                            class="esqueceu-senha"
+                        >
+
+                            Esqueceu a senha?
+
+                        </button>
+
+
+
+                        <!-- =================================
+                             ENTRAR
+                        ================================== -->
+
+                        <button
+                            type="submit"
+                            class="btn-entrar"
+                        >
+
+                            <span>
+                                Entrar
+                            </span>
+
+                            <span>
+                                →
+                            </span>
+
+                        </button>
+
+
+                    </form>
+
+
+
+                    <!-- Mensagem -->
+
+                    <p
+                        id="mensagemLogin"
+                        class="mensagem-login"
+                    ></p>
+
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             LADO DIREITO
+        ====================================== -->
+
+        <section class="direita">
+
+
+            <!-- Decorações -->
+
+            <div class="forma forma-topo"></div>
+
+            <div class="forma forma-baixo"></div>
+
+
+            <div class="estrela estrela-1">
+                ✦
+            </div>
+
+
+            <div class="estrela estrela-2">
+                ✦
+            </div>
+
+
+
+            <!-- =================================
+                 CAIXA DE APRESENTAÇÃO
+            ================================== -->
+
+            <div class="apresentacao">
+
+
+                <!-- Ilustração -->
+
+                <div class="ilustracao">
+
+
+                    <div class="circulo-ilustracao">
+                        📚
+                    </div>
+
+
+                    <div class="mini-icone mini-1">
+                        ⭐
+                    </div>
+
+
+                    <div class="mini-icone mini-2">
+                        💡
+                    </div>
+
+
+                    <div class="mini-icone mini-3">
+                        ✏️
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- Etiqueta -->
+
+                <span class="etiqueta-direita">
+
+                    SOBRE O STUDYPLAY
+
+                </span>
+
+
+
+                <!-- Título -->
+
+                <h2>
+
+                    Estudar pode ser
+
+                    <span>
+                        mais divertido!
+                    </span>
+
+                </h2>
+
+
+
+                <!-- Descrição -->
+
+                <p class="descricao">
+
+                    O <strong>StudyPlay</strong> é uma plataforma
+                    educacional criada para tornar as atividades
+                    escolares mais simples, interativas e
+                    interessantes.
+
+                </p>
+
+
+                <p class="descricao">
+
+                    A ideia é transformar o momento de estudar
+                    em uma experiência mais leve, organizada
+                    e motivadora para os alunos.
+
+                </p>
+
+
+
+                <!-- =================================
+                     BENEFÍCIOS
+                ================================== -->
+
+                <div class="beneficios">
+
+
+                    <!-- Foco -->
+
+                    <div class="beneficio">
+
+                        <div class="beneficio-icone">
+                            🎯
+                        </div>
+
+
+                        <div>
+
+                            <h3>
+                                Mais foco
+                            </h3>
+
+
+                            <p>
+                                Conteúdos organizados
+                                de forma simples.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Diversão -->
+
+                    <div class="beneficio">
+
+                        <div class="beneficio-icone">
+                            ⭐
+                        </div>
+
+
+                        <div>
+
+                            <h3>
+                                Mais diversão
+                            </h3>
+
+
+                            <p>
+                                Aprendizado com uma
+                                experiência agradável.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Conexão -->
+
+                    <div class="beneficio">
+
+                        <div class="beneficio-icone">
+                            💙
+                        </div>
+
+
+                        <div>
+
+                            <h3>
+                                Mais conexão
+                            </h3>
+
+
+                            <p>
+                                Escola, alunos e responsáveis
+                                mais próximos.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- =================================
+                     MENSAGEM FINAL
+                ================================== -->
+
+                <div class="mensagem">
+
+
+                    <div class="mensagem-icone">
+                        ✨
+                    </div>
+
+
+                    <div>
+
+                        <strong>
+                            Juntos por uma educação melhor!
+                        </strong>
+
+
+                        <span>
+                            Seu aprendizado, do seu jeito.
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================
+         JAVASCRIPT
+    ====================================== -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

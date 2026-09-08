@@ -1,0 +1,2018 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>StudyPlay - Mural</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* =========================
+           MURAL
+        ========================== */
+
+        .lista-duvidas {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        /* MATÉRIA */
+
+        .materia-mural {
+            width: 100%;
+            background: #fff9f0;
+            border: 1px solid #d9eaf5;
+            border-radius: 14px;
+            overflow: hidden;
+            transition: 0.2s ease;
+        }
+
+        .materia-mural.aberta {
+            background: #ffffff;
+            border-color: #e7aab5;
+        }
+
+        .cabecalho-materia {
+            width: 100%;
+            min-height: 70px;
+            padding: 12px 16px;
+
+            display: flex;
+            align-items: center;
+            gap: 14px;
+
+            border: none;
+            background: transparent;
+
+            color: #12395f;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .cabecalho-materia:hover {
+            background: #f3d5da;
+        }
+
+        .icone-materia {
+            width: 42px;
+            min-width: 42px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 25px;
+        }
+
+        .texto-materia {
+            flex: 1;
+
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .nome-materia {
+            color: #12395f;
+            font-size: 16px;
+            font-weight: 900;
+        }
+
+        .quantidade-materia {
+            color: #66809a;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .seta-materia {
+            color: #28639a;
+            font-size: 25px;
+            font-weight: 700;
+
+            transition: transform 0.2s ease;
+        }
+
+        .materia-mural.aberta .seta-materia {
+            transform: rotate(45deg);
+        }
+
+
+        /* =========================
+           DÚVIDAS
+        ========================== */
+
+        .duvidas-materia {
+            padding: 0 12px 12px;
+        }
+
+        .duvida-interna {
+            margin-top: 7px;
+
+            background: #fff9f0;
+            border: 1px solid #d9eaf5;
+            border-radius: 12px;
+
+            overflow: hidden;
+        }
+
+        .pergunta-interna {
+            width: 100%;
+            min-height: 58px;
+
+            padding: 10px 12px;
+
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            border: none;
+            background: transparent;
+
+            color: #12395f;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .pergunta-interna:hover {
+            background: #f3d5da;
+        }
+
+        .numero-duvida {
+            width: 28px;
+            height: 28px;
+            min-width: 28px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+            background: #d9eaf5;
+
+            color: #28639a;
+            font-size: 13px;
+            font-weight: 900;
+        }
+
+        .texto-duvida {
+            flex: 1;
+
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .rotulo-duvida {
+            color: #28639a;
+            font-size: 10px;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        .texto-duvida strong {
+            color: #12395f;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        .mais-interna {
+            color: #28639a;
+            font-size: 22px;
+            font-weight: 700;
+
+            transition: transform 0.2s ease;
+        }
+
+        .duvida-interna.aberta .mais-interna {
+            transform: rotate(45deg);
+        }
+
+
+        /* =========================
+           AJUDA
+        ========================== */
+
+        .ajuda-interna {
+            margin: 0 10px 10px;
+            padding: 12px;
+
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+
+            background: #d9eaf5;
+            border-radius: 10px;
+
+            color: #12395f;
+        }
+
+        .icone-ajuda {
+            font-size: 21px;
+        }
+
+        .ajuda-interna strong {
+            color: #28639a;
+            font-size: 13px;
+        }
+
+        .ajuda-interna p {
+            margin: 5px 0 0;
+
+            color: #12395f;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+
+        /* =========================
+           RESPONSIVO
+        ========================== */
+
+        @media (max-width: 650px) {
+
+            .cabecalho-materia {
+                min-height: 64px;
+                padding: 10px 12px;
+                gap: 9px;
+            }
+
+            .icone-materia {
+                width: 34px;
+                min-width: 34px;
+                font-size: 22px;
+            }
+
+            .nome-materia {
+                font-size: 14px;
+            }
+
+            .quantidade-materia {
+                font-size: 11px;
+            }
+
+            .duvidas-materia {
+                padding: 0 8px 8px;
+            }
+
+            .pergunta-interna {
+                min-height: 58px;
+                padding: 9px;
+            }
+
+            .texto-duvida strong {
+                font-size: 12px;
+            }
+
+            .ajuda-interna {
+                margin: 0 8px 8px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body class="pagina-home">
+
+
+    <!-- =========================
+         BARRA LATERAL
+    ========================== -->
+
+    <aside class="menu-lateral">
+
+        <div class="logo-home">
+
+            <span>🧠</span>
+
+            <div>
+                <strong>STUDY</strong>
+                <strong>PLAY</strong>
+            </div>
+
+        </div>
+
+
+        <nav class="navegacao">
+
+            <a href="home.html" class="item-menu">
+
+                <span>🏠</span>
+                <span>Início</span>
+
+            </a>
+
+
+            <a href="quiz.html" class="item-menu">
+
+                <span>🧩</span>
+                <span>Quiz</span>
+
+            </a>
+
+
+            <a href="mural.html" class="item-menu ativo">
+
+                <span>📌</span>
+                <span>Mural</span>
+
+            </a>
+
+        </nav>
+
+
+        <div class="rodape-menu">
+
+            📚
+
+            <span>
+                Vamos estudar!
+            </span>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =========================
+         CONTEÚDO PRINCIPAL
+    ========================== -->
+
+    <main class="conteudo-home">
+
+
+        <!-- TOPO -->
+
+        <header class="topo-home">
+
+            <div class="titulo-topo">
+
+                <span class="icone-casinha">
+                    📌
+                </span>
+
+                <span>
+                    Mural
+                </span>
+
+            </div>
+
+
+            <div class="usuario-home">
+
+                <div class="avatar-aluno">
+                    A
+                </div>
+
+                <span id="nomeAlunoTopo">
+                    Aluno
+                </span>
+
+                <span class="seta-perfil">
+                    ▼
+                </span>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =========================
+             CABEÇALHO
+        ========================== -->
+
+        <section class="boas-vindas">
+
+            <div>
+
+                <h1>
+                    As maiores dúvidas dos alunos 💡
+                </h1>
+
+                <p class="informacao-serie">
+                    Encontre respostas para as perguntas mais frequentes.
+                </p>
+
+                <p class="informacao-escola">
+                    📚 Um espaço para aprender e tirar dúvidas
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             CARDS DE RESUMO
+        ========================== -->
+
+        <section class="cards-resumo">
+
+
+            <div class="card-resumo card-faltas">
+
+                <div class="icone-card">
+                    📚
+                </div>
+
+                <div>
+
+                    <span class="numero-card">
+                        6
+                    </span>
+
+                    <p>
+                        Matérias
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="card-resumo card-boletim">
+
+                <div class="icone-card">
+                    📝
+                </div>
+
+                <div>
+
+                    <span class="numero-card">
+                        18
+                    </span>
+
+                    <p>
+                        Dúvidas
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="card-resumo card-notificacoes">
+
+                <div class="icone-card">
+                    💡
+                </div>
+
+                <div>
+
+                    <span class="numero-card">
+                        18
+                    </span>
+
+                    <p>
+                        Explicações
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =========================
+             MURAL
+        ========================== -->
+
+        <section class="card-agenda mural-principal">
+
+
+            <div class="titulo-card">
+
+                <div>
+
+                    <span class="emoji-titulo">
+                        📚
+                    </span>
+
+                    <h2>
+                        Dúvidas das matérias
+                    </h2>
+
+                </div>
+
+
+                <span class="semana">
+                    Como resolver?
+                </span>
+
+            </div>
+
+
+            <p class="subtitulo-mural">
+                Escolha uma matéria para ver as principais dúvidas dos alunos.
+            </p>
+
+
+
+            <!-- =========================
+                 LISTA DE MATÉRIAS
+            ========================== -->
+
+            <div class="lista-duvidas">
+
+
+
+                <!-- =========================
+                     MATEMÁTICA
+                ========================== -->
+
+                <div class="materia-mural">
+
+
+                    <button
+                        type="button"
+                        class="cabecalho-materia"
+                    >
+
+                        <span class="icone-materia">
+                            📐
+                        </span>
+
+                        <span class="texto-materia">
+
+                            <span class="nome-materia">
+                                Matemática
+                            </span>
+
+                            <span class="quantidade-materia">
+                                3 dúvidas frequentes
+                            </span>
+
+                        </span>
+
+                        <span class="seta-materia">
+                            +
+                        </span>
+
+                    </button>
+
+
+                    <div class="duvidas-materia">
+
+
+                        <!-- DÚVIDA 1 -->
+
+                        <div class="duvida-interna">
+
+                            <button
+                                type="button"
+                                class="pergunta-interna"
+                            >
+
+                                <span class="numero-duvida">
+                                    1
+                                </span>
+
+                                <span class="texto-duvida">
+
+                                    <span class="rotulo-duvida">
+                                        Dúvida 1
+                                    </span>
+
+                                    <strong>
+                                        Como resolvo uma equação do 2º grau?
+                                    </strong>
+
+                                </span>
+
+                                <span class="mais-interna">
+                                    +
+                                </span>
+
+                            </button>
+
+
+                            <div class="ajuda-interna">
+
+                                <span class="icone-ajuda">
+                                    💡
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        Ajuda
+                                    </strong>
+
+                                    <p>
+                                        Primeiro identifique os valores de
+                                        a, b e c na equação ax² + bx + c = 0.
+                                        Depois calcule o delta usando
+                                        Δ = b² − 4ac e utilize a fórmula
+                                        de Bhaskara para encontrar as raízes.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- DÚVIDA 2 -->
+
+                        <div class="duvida-interna">
+
+                            <button
+                                type="button"
+                                class="pergunta-interna"
+                            >
+
+                                <span class="numero-duvida">
+                                    2
+                                </span>
+
+                                <span class="texto-duvida">
+
+                                    <span class="rotulo-duvida">
+                                        Dúvida 2
+                                    </span>
+
+                                    <strong>
+                                        Como saber se uma função é crescente ou decrescente?
+                                    </strong>
+
+                                </span>
+
+                                <span class="mais-interna">
+                                    +
+                                </span>
+
+                            </button>
+
+
+                            <div class="ajuda-interna">
+
+                                <span class="icone-ajuda">
+                                    💡
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        Ajuda
+                                    </strong>
+
+                                    <p>
+                                        Em uma função afim f(x) = ax + b,
+                                        observe o valor de a. Se a for
+                                        positivo, a função é crescente.
+                                        Se a for negativo, a função é
+                                        decrescente.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- DÚVIDA 3 -->
+
+                        <div class="duvida-interna">
+
+                            <button
+                                type="button"
+                                class="pergunta-interna"
+                            >
+
+                                <span class="numero-duvida">
+                                    3
+                                </span>
+
+                                <span class="texto-duvida">
+
+                                    <span class="rotulo-duvida">
+                                        Dúvida 3
+                                    </span>
+
+                                    <strong>
+                                        Como calcular a probabilidade de um evento?
+                                    </strong>
+
+                                </span>
+
+                                <span class="mais-interna">
+                                    +
+                                </span>
+
+                            </button>
+
+
+                            <div class="ajuda-interna">
+
+                                <span class="icone-ajuda">
+                                    💡
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        Ajuda
+                                    </strong>
+
+                                    <p>
+                                        Divida o número de resultados
+                                        favoráveis pelo número total de
+                                        resultados possíveis. O resultado
+                                        pode ser apresentado como fração,
+                                        decimal ou porcentagem.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =========================
+                     PORTUGUÊS
+                ========================== -->
+
+                <div class="materia-mural">
+
+
+                    <button
+                        type="button"
+                        class="cabecalho-materia"
+                    >
+
+                        <span class="icone-materia">
+                            📚
+                        </span>
+
+                        <span class="texto-materia">
+
+                            <span class="nome-materia">
+                                Português
+                            </span>
+
+                            <span class="quantidade-materia">
+                                3 dúvidas frequentes
+                            </span>
+
+                        </span>
+
+                        <span class="seta-materia">
+                            +
+                        </span>
+
+                    </button>
+
+
+                    <div class="duvidas-materia">
+
+
+                        <!-- DÚVIDA 1 -->
+
+                        <div class="duvida-interna">
+
+                            <button
+                                type="button"
+                                class="pergunta-interna"
+                            >
+
+                                <span class="numero-duvida">
+                                    1
+                                </span>
+
+                                <span class="texto-duvida">
+
+                                    <span class="rotulo-duvida">
+                                        Dúvida 1
+                                    </span>
+
+                                    <strong>
+                                        Como identificar uma oração subordinada?
+                                    </strong>
+
+                                </span>
+
+                                <span class="mais-interna">
+                                    +
+                                </span>
+
+                            </button>
+
+
+                            <div class="ajuda-interna">
+
+                                <span class="icone-ajuda">
+                                    💡
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        Ajuda
+                                    </strong>
+
+                                    <p>
+                                        Observe se uma oração depende
+                                        sintaticamente de outra para
+                                        completar seu sentido. Depois
+                                        identifique a função que ela exerce
+                                        no período.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- DÚVIDA 2 -->
+
+                        <div class="duvida-interna">
+
+                            <button
+                                type="button"
+                                class="pergunta-interna"
+                            >
+
+                                <span class="numero-duvida">
+                                    2
+                                </span>
+
+                                <span class="texto-duvida">
+
+                                    <span class="rotulo-duvida">
+                                        Dúvida 2
+                                    </span>
+
+                                    <strong>
+                                        Como diferenciar denotação de conotação?
+                                    </strong>
+
+                                </span>
+
+                                <span class="mais-interna">
+                                    +
+                                </span>
+
+                            </button>
+
+
+                            <div class="ajuda-interna">
+
+                                <span class="icone-ajuda">
+                                    💡
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        Ajuda
+                                    </strong>
+
+                                    <p>
+                                        Denotação é o sentido literal
+                                        de uma palavra. Conotação é o
+                                        sentido figurado. Observe sempre
+                                        o contexto em que a palavra foi
+                                        utilizada.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- DÚVIDA 3 -->
+
+                        <div class="duvida-interna">
+
+                            <button
+                                type="button"
+                                class="pergunta-interna"
+                            >
+
+                                <span class="numero-duvida">
+                                    3
+                                </span>
+
+                                <span class="texto-duvida">
+
+                                    <span class="rotulo-duvida">
+                                        Dúvida 3
+                                    </span>
+
+                                    <strong>
+                                        Como encontrar a tese de um texto?
+                                    </strong>
+
+                                </span>
+
+                                <span class="mais-interna">
+                                    +
+                                </span>
+
+                            </button>
+
+
+                            <div class="ajuda-interna">
+
+                                <span class="icone-ajuda">
+                                    💡
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        Ajuda
+                                    </strong>
+
+                                    <p>
+                                        Procure a ideia principal defendida
+                                        pelo autor. A tese geralmente é
+                                        apresentada na introdução ou pode
+                                        ser identificada pela relação entre
+                                        os argumentos do texto.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =========================
+                     GEOGRAFIA
+                ========================== -->
+
+                <div class="materia-mural">
+
+
+                    <button
+                        type="button"
+                        class="cabecalho-materia"
+                    >
+
+                        <span class="icone-materia">
+                            🌎
+                        </span>
+
+                        <span class="texto-materia">
+
+                            <span class="nome-materia">
+                                Geografia
+                            </span>
+
+                            <span class="quantidade-materia">
+                                3 dúvidas frequentes
+                            </span>
+
+                        </span>
+
+                        <span class="seta-materia">
+                            +
+                        </span>
+
+                    </button>
+
+
+                    <div class="duvidas-materia">
+
+
+                        <!-- DÚVIDA 1 -->
+
+                        <div class="duvida-interna">
+
+                            <button
+                                type="button"
+                                class="pergunta-interna"
+                            >
+
+                                <span class="numero-duvida">
+                                    1
+                                </span>
+
+                                <span class="texto-duvida">
+
+                                    <span class="rotulo-duvida">
+                                        Dúvida 1
+                                    </span>
+
+                                    <strong>
+                                        Como interpretar uma escala em um mapa?
+                                    </strong>
+
+                                </span>
+
+                                <span class="mais-interna">
+                                    +
+                                </span>
+
+                            </button>
+
+
+                            <div class="ajuda-interna">
+
+                                <span class="icone-ajuda">
+                                    💡
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        Ajuda
+                                    </strong>
+
+                                    <p>
+                                        A escala mostra a relação entre
+                                        uma distância no mapa e a distância
+                                        real. Em uma escala 1:100.000,
+                                        cada 1 cm no mapa representa
+                                        100.000 cm na realidade.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- DÚVIDA 2 -->
+
+                        <div class="duvida-interna">
+
+                            <button
+                                type="button"
+                                class="pergunta-interna"
+                            >
+
+                                <span class="numero-duvida">
+                                    2
+                                </span>
+
+                                <span class="texto-duvida">
+
+                                    <span class="rotulo-duvida">
+                                        Dúvida 2
+                                    </span>
+
+                                    <strong>
+                                        O que é globalização?
+                                    </strong>
+
+                                </span>
+
+                                <span class="mais-interna">
+                                    +
+                                </span>
+
+                            </button>
+
+
+                            <div class="ajuda-interna">
+
+                                <span class="icone-ajuda">
+                                    💡
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        Ajuda
+                                    </strong>
+
+                                    <p>
+                                        Globalização é o processo de
+                                        intensificação das relações
+                                        econômicas, políticas, culturais
+                                        e tecnológicas entre diferentes
+                                        regiões do mundo.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- DÚVIDA 3 -->
+
+                        <div class="duvida-interna">
+
+                            <button
+                                type="button"
+                                class="pergunta-interna"
+                            >
+
+                                <span class="numero-duvida">
+                                    3
+                                </span>
+
+                                <span class="texto-duvida">
+
+                                    <span class="rotulo-duvida">
+                                        Dúvida 3
+                                    </span>
+
+                                    <strong>
+                                        Como entender a transição demográfica?
+                                    </strong>
+
+                                </span>
+
+                                <span class="mais-interna">
+                                    +
+                                </span>
+
+                            </button>
+
+
+                            <div class="ajuda-interna">
+
+                                <span class="icone-ajuda">
+                                    💡
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        Ajuda
+                                    </strong>
+
+                                    <p>
+                                        A transição demográfica representa
+                                        mudanças nas taxas de natalidade e
+                                        mortalidade de uma população ao longo
+                                        do desenvolvimento de uma sociedade.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =========================
+                     BIOLOGIA
+                ========================== -->
+
+                <div class="materia-mural">
+
+
+                    <button
+                        type="button"
+                        class="cabecalho-materia"
+                    >
+
+                        <span class="icone-materia">
+                            🧬
+                        </span>
+
+                        <span class="texto-materia">
+
+                            <span class="nome-materia">
+                                Biologia
+                            </span>
+
+                            <span class="quantidade-materia">
+                                3 dúvidas frequentes
+                            </span>
+
+                        </span>
+
+                        <span class="seta-materia">
+                            +
+                        </span>
+
+                    </button>
+
+
+                    <div class="duvidas-materia">
+
+
+                        <!-- DÚVIDA 1 -->
+
+                        <div class="duvida-interna">
+
+                            <button
+                                type="button"
+                                class="pergunta-interna"
+                            >
+
+                                <span class="numero-duvida">
+                                    1
+                                </span>
+
+                                <span class="texto-duvida">
+
+                                    <span class="rotulo-duvida">
+                                        Dúvida 1
+                                    </span>
+
+                                    <strong>
+                                        Como funciona a divisão celular?
+                                    </strong>
+
+                                </span>
+
+                                <span class="mais-interna">
+                                    +
+                                </span>
+
+                            </button>
+
+
+                            <div class="ajuda-interna">
+
+                                <span class="icone-ajuda">
+                                    💡
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        Ajuda
+                                    </strong>
+
+                                    <p>
+                                        A divisão celular permite que uma
+                                        célula origine novas células.
+                                        A mitose produz duas células
+                                        semelhantes, enquanto a meiose
+                                        participa da formação de células
+                                        reprodutivas.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- DÚVIDA 2 -->
+
+                        <div class="duvida-interna">
+
+                            <button
+                                type="button"
+                                class="pergunta-interna"
+                            >
+
+                                <span class="numero-duvida">
+                                    2
+                                </span>
+
+                                <span class="texto-duvida">
+
+                                    <span class="rotulo-duvida">
+                                        Dúvida 2
+                                    </span>
+
+                                    <strong>
+                                        Qual é a função do DNA?
+                                    </strong>
+
+                                </span>
+
+                                <span class="mais-interna">
+                                    +
+                                </span>
+
+                            </button>
+
+
+                            <div class="ajuda-interna">
+
+                                <span class="icone-ajuda">
+                                    💡
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        Ajuda
+                                    </strong>
+
+                                    <p>
+                                        O DNA armazena as informações
+                                        genéticas dos seres vivos.
+                                        Essas informações participam
+                                        da produção de proteínas e
+                                        ajudam a determinar características
+                                        celulares.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- DÚVIDA 3 -->
+
+                        <div class="duvida-interna">
+
+                            <button
+                                type="button"
+                                class="pergunta-interna"
+                            >
+
+                                <span class="numero-duvida">
+                                    3
+                                </span>
+
+                                <span class="texto-duvida">
+
+                                    <span class="rotulo-duvida">
+                                        Dúvida 3
+                                    </span>
+
+                                    <strong>
+                                        Como funciona a seleção natural?
+                                    </strong>
+
+                                </span>
+
+                                <span class="mais-interna">
+                                    +
+                                </span>
+
+                            </button>
+
+
+                            <div class="ajuda-interna">
+
+                                <span class="icone-ajuda">
+                                    💡
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        Ajuda
+                                    </strong>
+
+                                    <p>
+                                        Indivíduos com características
+                                        favoráveis à sobrevivência e
+                                        reprodução tendem a deixar mais
+                                        descendentes. Ao longo das
+                                        gerações, essas características
+                                        podem se tornar mais frequentes.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =========================
+                     FÍSICA
+                ========================== -->
+
+                <div class="materia-mural">
+
+
+                    <button
+                        type="button"
+                        class="cabecalho-materia"
+                    >
+
+                        <span class="icone-materia">
+                            ⚡
+                        </span>
+
+                        <span class="texto-materia">
+
+                            <span class="nome-materia">
+                                Física
+                            </span>
+
+                            <span class="quantidade-materia">
+                                3 dúvidas frequentes
+                            </span>
+
+                        </span>
+
+                        <span class="seta-materia">
+                            +
+                        </span>
+
+                    </button>
+
+
+                    <div class="duvidas-materia">
+
+
+                        <!-- DÚVIDA 1 -->
+
+                        <div class="duvida-interna">
+
+                            <button
+                                type="button"
+                                class="pergunta-interna"
+                            >
+
+                                <span class="numero-duvida">
+                                    1
+                                </span>
+
+                                <span class="texto-duvida">
+
+                                    <span class="rotulo-duvida">
+                                        Dúvida 1
+                                    </span>
+
+                                    <strong>
+                                        Como calcular a velocidade média?
+                                    </strong>
+
+                                </span>
+
+                                <span class="mais-interna">
+                                    +
+                                </span>
+
+                            </button>
+
+
+                            <div class="ajuda-interna">
+
+                                <span class="icone-ajuda">
+                                    💡
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        Ajuda
+                                    </strong>
+
+                                    <p>
+                                        Use a fórmula Vm = ΔS / Δt.
+                                        Divida a variação da posição,
+                                        ou distância percorrida,
+                                        pelo intervalo de tempo.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- DÚVIDA 2 -->
+
+                        <div class="duvida-interna">
+
+                            <button
+                                type="button"
+                                class="pergunta-interna"
+                            >
+
+                                <span class="numero-duvida">
+                                    2
+                                </span>
+
+                                <span class="texto-duvida">
+
+                                    <span class="rotulo-duvida">
+                                        Dúvida 2
+                                    </span>
+
+                                    <strong>
+                                        Como aplicar a segunda lei de Newton?
+                                    </strong>
+
+                                </span>
+
+                                <span class="mais-interna">
+                                    +
+                                </span>
+
+                            </button>
+
+
+                            <div class="ajuda-interna">
+
+                                <span class="icone-ajuda">
+                                    💡
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        Ajuda
+                                    </strong>
+
+                                    <p>
+                                        A segunda lei de Newton é
+                                        representada por F = m · a.
+                                        A força resultante é igual à
+                                        massa do corpo multiplicada
+                                        pela sua aceleração.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- DÚVIDA 3 -->
+
+                        <div class="duvida-interna">
+
+                            <button
+                                type="button"
+                                class="pergunta-interna"
+                            >
+
+                                <span class="numero-duvida">
+                                    3
+                                </span>
+
+                                <span class="texto-duvida">
+
+                                    <span class="rotulo-duvida">
+                                        Dúvida 3
+                                    </span>
+
+                                    <strong>
+                                        Como calcular a energia cinética?
+                                    </strong>
+
+                                </span>
+
+                                <span class="mais-interna">
+                                    +
+                                </span>
+
+                            </button>
+
+
+                            <div class="ajuda-interna">
+
+                                <span class="icone-ajuda">
+                                    💡
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        Ajuda
+                                    </strong>
+
+                                    <p>
+                                        A energia cinética é calculada
+                                        pela fórmula Ec = m · v² / 2.
+                                        Observe a massa do corpo e sua
+                                        velocidade antes de substituir
+                                        os valores.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =========================
+                     HISTÓRIA
+                ========================== -->
+
+                <div class="materia-mural">
+
+
+                    <button
+                        type="button"
+                        class="cabecalho-materia"
+                    >
+
+                        <span class="icone-materia">
+                            🏛️
+                        </span>
+
+                        <span class="texto-materia">
+
+                            <span class="nome-materia">
+                                História
+                            </span>
+
+                            <span class="quantidade-materia">
+                                3 dúvidas frequentes
+                            </span>
+
+                        </span>
+
+                        <span class="seta-materia">
+                            +
+                        </span>
+
+                    </button>
+
+
+                    <div class="duvidas-materia">
+
+
+                        <!-- DÚVIDA 1 -->
+
+                        <div class="duvida-interna">
+
+                            <button
+                                type="button"
+                                class="pergunta-interna"
+                            >
+
+                                <span class="numero-duvida">
+                                    1
+                                </span>
+
+                                <span class="texto-duvida">
+
+                                    <span class="rotulo-duvida">
+                                        Dúvida 1
+                                    </span>
+
+                                    <strong>
+                                        Como entender as causas da Revolução Francesa?
+                                    </strong>
+
+                                </span>
+
+                                <span class="mais-interna">
+                                    +
+                                </span>
+
+                            </button>
+
+
+                            <div class="ajuda-interna">
+
+                                <span class="icone-ajuda">
+                                    💡
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        Ajuda
+                                    </strong>
+
+                                    <p>
+                                        Organize as causas em grupos:
+                                        crise econômica, desigualdade
+                                        social, problemas políticos e
+                                        influência das ideias iluministas.
+                                        A combinação desses fatores ajudou
+                                        a provocar a revolução.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- DÚVIDA 2 -->
+
+                        <div class="duvida-interna">
+
+                            <button
+                                type="button"
+                                class="pergunta-interna"
+                            >
+
+                                <span class="numero-duvida">
+                                    2
+                                </span>
+
+                                <span class="texto-duvida">
+
+                                    <span class="rotulo-duvida">
+                                        Dúvida 2
+                                    </span>
+
+                                    <strong>
+                                        O que foi a Revolução Industrial?
+                                    </strong>
+
+                                </span>
+
+                                <span class="mais-interna">
+                                    +
+                                </span>
+
+                            </button>
+
+
+                            <div class="ajuda-interna">
+
+                                <span class="icone-ajuda">
+                                    💡
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        Ajuda
+                                    </strong>
+
+                                    <p>
+                                        Foi um processo de grandes
+                                        transformações econômicas e
+                                        sociais iniciado na Inglaterra
+                                        no século XVIII, marcado pela
+                                        mecanização da produção e pelo
+                                        crescimento das fábricas.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- DÚVIDA 3 -->
+
+                        <div class="duvida-interna">
+
+                            <button
+                                type="button"
+                                class="pergunta-interna"
+                            >
+
+                                <span class="numero-duvida">
+                                    3
+                                </span>
+
+                                <span class="texto-duvida">
+
+                                    <span class="rotulo-duvida">
+                                        Dúvida 3
+                                    </span>
+
+                                    <strong>
+                                        Como entender a Era Vargas?
+                                    </strong>
+
+                                </span>
+
+                                <span class="mais-interna">
+                                    +
+                                </span>
+
+                            </button>
+
+
+                            <div class="ajuda-interna">
+
+                                <span class="icone-ajuda">
+                                    💡
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        Ajuda
+                                    </strong>
+
+                                    <p>
+                                        Para estudar a Era Vargas,
+                                        organize o período em suas
+                                        diferentes fases e observe
+                                        as mudanças políticas, econômicas
+                                        e sociais ocorridas no Brasil.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        /* =========================
+           NOME DO ALUNO
+        ========================== */
+
+        const nomeAluno = sessionStorage.getItem("nomeAluno");
+
+        if (nomeAluno) {
+
+            const nomeTopo =
+                document.getElementById("nomeAlunoTopo");
+
+            if (nomeTopo) {
+                nomeTopo.textContent = nomeAluno;
+            }
+
+        }
+
+
+        /* =========================
+           ABRIR E FECHAR MATÉRIAS
+        ========================== */
+
+        const materias =
+            document.querySelectorAll(".materia-mural");
+
+
+        materias.forEach(function (materia) {
+
+            const botaoMateria =
+                materia.querySelector(".cabecalho-materia");
+
+            const duvidas =
+                materia.querySelector(".duvidas-materia");
+
+
+            /* Começa fechado */
+
+            duvidas.style.display = "none";
+
+
+            botaoMateria.addEventListener("click", function () {
+
+                const aberta =
+                    materia.classList.toggle("aberta");
+
+
+                if (aberta) {
+
+                    duvidas.style.display = "block";
+
+                    botaoMateria.setAttribute(
+                        "aria-expanded",
+                        "true"
+                    );
+
+                } else {
+
+                    duvidas.style.display = "none";
+
+                    botaoMateria.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+                }
+
+            });
+
+        });
+
+
+        /* =========================
+           ABRIR E FECHAR DÚVIDAS
+        ========================== */
+
+        const duvidas =
+            document.querySelectorAll(".duvida-interna");
+
+
+        duvidas.forEach(function (duvida) {
+
+            const botao =
+                duvida.querySelector(".pergunta-interna");
+
+            const ajuda =
+                duvida.querySelector(".ajuda-interna");
+
+
+            /* Começa fechado */
+
+            ajuda.style.display = "none";
+
+
+            botao.addEventListener("click", function () {
+
+                const aberta =
+                    duvida.classList.toggle("aberta");
+
+
+                if (aberta) {
+
+                    ajuda.style.display = "flex";
+
+                    botao.setAttribute(
+                        "aria-expanded",
+                        "true"
+                    );
+
+                } else {
+
+                    ajuda.style.display = "none";
+
+                    botao.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+                }
+
+            });
+
+        });
+
+    </script>
+
+
+</body>
+
+</html>
